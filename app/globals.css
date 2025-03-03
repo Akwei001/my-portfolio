@@ -1,24 +1,125 @@
 @import "tailwindcss";
 
-@theme {
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --color-primary: 108, 59, 255;
+  --color-secondary: 0, 0, 0;
+  --color-accent: 244, 244, 244;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-zinc-950 text-zinc-200 selection:bg-primary/30 selection:text-white;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+@layer components {
+  .heading-xl {
+    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold;
+  }
+  
+  .heading-lg {
+    @apply text-3xl sm:text-4xl md:text-5xl font-bold;
+  }
+  
+  .heading-md {
+    @apply text-2xl sm:text-3xl font-bold;
+  }
+  
+  .container-custom {
+    @apply w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+  
+  .nav-link {
+    @apply relative px-1 py-2 text-zinc-400 transition-colors duration-200 hover:text-white;
+  }
+  
+  .nav-link::after {
+    content: '';
+    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out;
+  }
+  
+  .nav-link:hover::after {
+    @apply w-full;
+  }
+  
+  .nav-link.active {
+    @apply text-white;
+  }
+  
+  .nav-link.active::after {
+    @apply w-full;
+  }
+  
+  .button-primary {
+    @apply bg-primary text-white font-medium px-6 py-3 rounded-lg transition-all duration-300
+    hover:translate-y-[-2px] hover:shadow-lg hover:shadow-primary/20
+    active:translate-y-[0px] active:shadow-md;
+  }
+  
+  .button-outline {
+    @apply border border-zinc-700 text-zinc-200 font-medium px-6 py-3 rounded-lg transition-all duration-300
+    hover:border-primary hover:text-primary hover:translate-y-[-2px]
+    active:translate-y-[0px];
+  }
+  
+  .card {
+    @apply bg-zinc-900/40 backdrop-blur-sm border border-zinc-800 rounded-xl overflow-hidden transition-all duration-300
+    hover:border-zinc-700 hover:shadow-xl hover:shadow-black/20;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+/* Inspired by Brittany Chiang's site */
+.terminal-cursor::after {
+  content: '|';
+  @apply text-primary animate-pulse;
+}
+
+/* Scroll animations */
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-zinc-950;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-800 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-zinc-700;
 }
