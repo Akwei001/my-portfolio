@@ -16,7 +16,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata = {
-  title: 'Kwame Akwei | Front-End Developer',
+  title: 'Akwei Acquaye | Front-End Developer',
   description: 'Portfolio showcasing my work as a front-end developer specializing in React, Next.js and modern web technologies.',
 };
 
