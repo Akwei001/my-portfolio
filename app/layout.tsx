@@ -1,7 +1,7 @@
 // app/layout.tsx
 import './globals.css';
 import { Inter, JetBrains_Mono } from 'next/font/google';
-import { Providers } from './providers';
+// import { Providers } from './providers';
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -28,9 +28,9 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-zinc-950 text-zinc-200`}>
-        <Providers>
+        {/* <Providers>
           {children}
-        </Providers>
+        </Providers> */}
       </body>
     </html>
   );
