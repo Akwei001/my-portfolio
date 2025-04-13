@@ -1,23 +1,14 @@
 // app/layout.tsx
+import type { Metadata } from 'next';
+import { Inter } from 'next/font/google';
 import './globals.css';
-import { Inter, JetBrains_Mono } from 'next/font/google';
-// import { Providers } from './providers';
+import { ThemeProvider } from './providers';
 
-const inter = Inter({ 
-  subsets: ['latin'],
-  variable: '--font-inter',
-  display: 'swap',
-});
+const inter = Inter({ subsets: ['latin'] });
 
-const jetbrainsMono = JetBrains_Mono({
-  subsets: ['latin'],
-  variable: '--font-mono',
-  display: 'swap',
-});
-
-export const metadata = {
-  title: 'Akwei Acquaye | Front-End Developer',
-  description: 'Portfolio showcasing my work as a front-end developer specializing in React, Next.js and modern web technologies.',
+export const metadata: Metadata = {
+  title: 'Akwei - Portfolio',
+  description: 'Personal portfolio website showcasing projects and blog posts',
 };
 
 export default function RootLayout({
@@ -26,11 +17,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} font-sans bg-zinc-950 text-zinc-200`}>
-        {/* <Providers>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
+        <ThemeProvider>
           {children}
-        </Providers> */}
+        </ThemeProvider>
       </body>
     </html>
   );

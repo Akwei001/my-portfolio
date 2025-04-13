@@ -1,125 +1,75 @@
-@import "tailwindcss";
-
-
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --color-primary: 108, 59, 255;
-  --color-secondary: 0, 0, 0;
-  --color-accent: 244, 244, 244;
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
 }
 
 @layer base {
   html {
-    @apply scroll-smooth;
-  }
-
-  body {
-    @apply bg-zinc-950 text-zinc-200 selection:bg-primary/30 selection:text-white;
-  }
-
-  h1, h2, h3, h4, h5, h6 {
-    @apply font-bold tracking-tight;
+    scroll-behavior: smooth;
   }
 }
 
 @layer components {
-  .heading-xl {
-    @apply text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold;
+  .btn {
+    @apply px-6 py-3 rounded-md transition-colors;
   }
   
-  .heading-lg {
-    @apply text-3xl sm:text-4xl md:text-5xl font-bold;
+  .btn-primary {
+    @apply bg-purple-600 text-white hover:bg-purple-700;
   }
   
-  .heading-md {
-    @apply text-2xl sm:text-3xl font-bold;
+  .btn-secondary {
+    @apply border border-purple-600 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-zinc-800;
   }
-  
-  .container-custom {
-    @apply w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  .nav-link {
-    @apply relative px-1 py-2 text-zinc-400 transition-colors duration-200 hover:text-white;
-  }
-  
-  .nav-link::after {
-    content: '';
-    @apply absolute left-0 bottom-0 w-0 h-0.5 bg-primary transition-all duration-300 ease-out;
-  }
-  
-  .nav-link:hover::after {
-    @apply w-full;
-  }
-  
-  .nav-link.active {
-    @apply text-white;
-  }
-  
-  .nav-link.active::after {
-    @apply w-full;
-  }
-  
-  .button-primary {
-    @apply bg-primary text-white font-medium px-6 py-3 rounded-lg transition-all duration-300
-    hover:translate-y-[-2px] hover:shadow-lg hover:shadow-primary/20
-    active:translate-y-[0px] active:shadow-md;
-  }
-  
-  .button-outline {
-    @apply border border-zinc-700 text-zinc-200 font-medium px-6 py-3 rounded-lg transition-all duration-300
-    hover:border-primary hover:text-primary hover:translate-y-[-2px]
-    active:translate-y-[0px];
-  }
-  
-  .card {
-    @apply bg-zinc-900/40 backdrop-blur-sm border border-zinc-800 rounded-xl overflow-hidden transition-all duration-300
-    hover:border-zinc-700 hover:shadow-xl hover:shadow-black/20;
-  }
-}
-
-/* Custom animations */
-@keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-10px); }
-  100% { transform: translateY(0px); }
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-/* Inspired by Brittany Chiang's site */
-.terminal-cursor::after {
-  content: '|';
-  @apply text-primary animate-pulse;
-}
-
-/* Scroll animations */
-.reveal {
-  opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-}
-
-.reveal.active {
-  opacity: 1;
-  transform: translateY(0);
 }
 
 /* Custom scrollbar */
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 8px;
+  height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  @apply bg-zinc-950;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  @apply bg-zinc-800 rounded-full;
+  background: #888;
+  border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  @apply bg-zinc-700;
+  background: #666;
+}
+
+/* Dark mode scrollbar */
+.dark ::-webkit-scrollbar-thumb {
+  background: #555;
+}
+
+.dark ::-webkit-scrollbar-thumb:hover {
+  background: #777;
 }
