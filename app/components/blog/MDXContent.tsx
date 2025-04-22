@@ -1,16 +1,12 @@
 'use client';
 
-import { MDXRemote } from 'next-mdx-remote';
+import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { motion } from 'framer-motion';
 import { fadeIn } from '@/app/utils/animations';
 import { ComponentProps } from 'react';
 
 interface MDXContentProps {
-  source: {
-    compiledSource: string;
-    scope?: Record<string, unknown>;
-    frontmatter?: Record<string, unknown>;
-  };
+  source: MDXRemoteSerializeResult;
 }
 
 const components = {

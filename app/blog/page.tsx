@@ -1,4 +1,3 @@
-import Navigation from '../components/layout/Navigation';
 import Link from 'next/link';
 import fs from 'fs';
 import path from 'path';
@@ -37,8 +36,7 @@ export default async function BlogPage() {
   const posts = await getBlogPosts();
 
   return (
-    <main className="min-h-screen bg-white dark:bg-zinc-900">
-      <Navigation />
+    <main className="min-h-screen bg-white dark:bg-zinc-900 pt-16">
       <BlogContent posts={posts} />
     </main>
   );

@@ -2,7 +2,10 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { ThemeProvider } from './providers';
+import { ThemeProvider } from './contexts/ThemeContext';
+import ScrollProgress from './components/shared/ScrollProgress';
+import ScrollToTop from './components/shared/ScrollToTop';
+import Navbar from './components/Navbar';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -20,7 +23,12 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>
         <ThemeProvider>
-          {children}
+          <ScrollProgress />
+          <Navbar />
+          <main>
+            {children}
+            <ScrollToTop />
+          </main>
         </ThemeProvider>
       </body>
     </html>

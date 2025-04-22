@@ -4,6 +4,8 @@ import { motion, useScroll, useSpring } from 'framer-motion';
 
 export default function ScrollProgress() {
   const { scrollYProgress } = useScroll();
+  
+  // Add spring physics for smooth animation
   const scaleX = useSpring(scrollYProgress, {
     stiffness: 100,
     damping: 30,
@@ -12,8 +14,11 @@ export default function ScrollProgress() {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 right-0 z-50 h-1 origin-left bg-purple-600"
-      style={{ scaleX }}
+      className="fixed top-0 left-0 right-0 h-1 bg-primary z-[100] origin-left"
+      style={{ 
+        scaleX,
+        backgroundColor: 'var(--primary-color)'
+      }}
     />
   );
 } 

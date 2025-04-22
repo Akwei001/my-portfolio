@@ -6,6 +6,10 @@
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 255, 255, 255;
   --background-end-rgb: 255, 255, 255;
+  --primary-color: rgb(128, 90, 213);
+  --background-main: rgb(255, 255, 255);
+  --text-color: rgb(0, 0, 0);
+  --accent-color: rgb(128, 90, 213, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -13,17 +17,17 @@
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
     --background-end-rgb: 0, 0, 0;
+    --background-main: rgb(17, 17, 17);
+    --text-color: rgb(238, 238, 238);
+    --accent-color: rgba(128, 90, 213, 0.2);
+    --primary-color: rgb(128, 90, 213);
   }
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  transition: background-color 0.25s ease, color 0.25s ease;
+  color: var(--text-color);
+  background: var(--background-main);
 }
 
 @layer base {
@@ -44,6 +48,32 @@ body {
   .btn-secondary {
     @apply border border-purple-600 text-purple-600 dark:text-purple-400 hover:bg-purple-50 dark:hover:bg-zinc-800;
   }
+
+  .button-outline {
+    @apply px-4 py-2 border border-purple-600 text-purple-600 rounded-md transition-colors;
+  }
+
+  .button-outline:hover {
+    @apply bg-purple-600/10;
+  }
+
+  .nav-link {
+    @apply text-zinc-400 hover:text-white transition-colors;
+  }
+
+  .nav-link.active {
+    @apply text-purple-600 font-medium;
+  }
+
+  .terminal-cursor::after {
+    content: '_';
+    animation: cursor 1s infinite;
+  }
+}
+
+@keyframes cursor {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
 }
 
 /* Custom scrollbar */
@@ -72,4 +102,8 @@ body {
 
 .dark ::-webkit-scrollbar-thumb:hover {
   background: #777;
+}
+
+.container-custom {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
 }

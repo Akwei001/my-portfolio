@@ -1,4 +1,3 @@
-import Navigation from '../components/layout/Navigation';
 import ResourcesContent from './ResourcesContent';
 
 const resources = [
@@ -32,12 +31,12 @@ const resources = [
       },
     ],
   },
+  // Add more resources as needed
 ];
 
 export default function ResourcesPage() {
   return (
-    <main className="min-h-screen bg-white dark:bg-zinc-900">
-      <Navigation />
+    <main className="min-h-screen bg-white dark:bg-zinc-900 pt-16">
       <ResourcesContent resources={resources} />
     </main>
   );
