@@ -2,10 +2,12 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import './globals.css';
-import { ThemeProvider } from './contexts/ThemeContext';
+// import { ThemeProvider } from './contexts/ThemeContext';
+import { ThemeProvider } from './providers';
 import ScrollProgress from './components/shared/ScrollProgress';
 import ScrollToTop from './components/shared/ScrollToTop';
 import Navbar from './components/Navbar';
+import Footer from './components/layout/Footer';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -21,14 +23,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
-        <ThemeProvider>
+      {/* The ThemeProvider from next-themes will likely be applied in providers.tsx */}
+      <body className={`${inter.className} flex flex-col min-h-screen`}>
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           <ScrollProgress />
           <Navbar />
-          <main>
+          <main className="flex-grow">
             {children}
             <ScrollToTop />
           </main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
