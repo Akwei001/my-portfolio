@@ -51,13 +51,13 @@ export default function Navbar() {
   
   return (
     <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
-        isScrolled 
-          ? 'py-3 bg-zinc-950/90 backdrop-blur-sm border-b border-zinc-800/50' 
-          : 'py-5 bg-transparent'
-      }`}
+      // className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      //   isScrolled 
+      //     ? 'py-3 bg-zinc-950/90 backdrop-blur-sm border-b border-zinc-800/50' 
+      //     : 'py-5 bg-transparent'
+      // }`}
     >
-      <div className="container-custom flex items-center justify-between">
+      <div className="flex items-center justify-between container-custom">
         {/* Logo */}
         <Link href="/">
           <span className="font-mono text-xl font-semibold text-purple-600 terminal-cursor">
@@ -66,7 +66,7 @@ export default function Navbar() {
         </Link>
         
         {/* Desktop navigation */}
-        <nav className="hidden md:flex items-center space-x-6">
+        <nav className="items-center hidden space-x-6 md:flex">
           {navItems.map((item) => (
             <Link 
               key={item.name} 
@@ -81,7 +81,7 @@ export default function Navbar() {
             href="/resume.pdf" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="button-outline ml-2"
+            className="ml-2 button-outline"
           >
             Resume
           </a>
@@ -91,10 +91,10 @@ export default function Navbar() {
         </nav>
         
         {/* Mobile menu button */}
-        <div className="md:hidden flex items-center gap-2">
+        <div className="flex items-center gap-2 md:hidden">
           <ThemeSwitcher />
           <button 
-            className="text-zinc-400 hover:text-white p-2"
+            className="p-2 text-zinc-400 hover:text-white"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -124,9 +124,9 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-zinc-900/95 backdrop-blur-md border-t border-zinc-800"
+            className="border-t md:hidden bg-zinc-900/95 backdrop-blur-md border-zinc-800"
           >
-            <div className="container-custom py-4 flex flex-col items-center space-y-4">
+            <div className="flex flex-col items-center py-4 space-y-4 container-custom">
               {navItems.map((item) => (
                 <Link 
                   key={item.name} 
@@ -142,7 +142,7 @@ export default function Navbar() {
                 href="/resume.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="button-outline inline-block text-center mt-2 w-full max-w-xs"
+                className="inline-block w-full max-w-xs mt-2 text-center button-outline"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Resume
