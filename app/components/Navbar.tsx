@@ -9,11 +9,11 @@ import ThemeSwitcher from './ThemeSwitcher';
 
 const navItems = [
   { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
+  // { name: 'About', path: '/about' },
   { name: 'Projects', path: '/projects' },
   { name: 'Blog', path: '/blog' },
   { name: 'Resources', path: '/resources' },
-  { name: 'Contact', path: '/contact' },
+  // { name: 'Contact', path: '/contact' },
 ];
 
 export default function Navbar() {
@@ -53,11 +53,11 @@ export default function Navbar() {
     <header 
       // className={`fixed top-0 w-full z-50 transition-all duration-300 ${
       //   isScrolled 
-      //     ? 'py-3 bg-zinc-950/90 backdrop-blur-sm border-b border-zinc-800/50' 
+      //     ? 'py-3 border-b backdrop-blur-sm bg-zinc-950/90 border-zinc-800/50' 
       //     : 'py-5 bg-transparent'
       // }`}
     >
-      <div className="flex items-center justify-between container-custom">
+      <div className="flex justify-between items-center container-custom">
         {/* Logo */}
         <Link href="/">
           <span className="font-mono text-xl font-semibold text-purple-600 terminal-cursor">
@@ -66,7 +66,7 @@ export default function Navbar() {
         </Link>
         
         {/* Desktop navigation */}
-        <nav className="items-center hidden space-x-6 md:flex">
+        <nav className="hidden items-center space-x-6 md:flex">
           {navItems.map((item) => (
             <Link 
               key={item.name} 
@@ -91,7 +91,7 @@ export default function Navbar() {
         </nav>
         
         {/* Mobile menu button */}
-        <div className="flex items-center gap-2 md:hidden">
+        <div className="flex gap-2 items-center md:hidden">
           <ThemeSwitcher />
           <button 
             className="p-2 text-zinc-400 hover:text-white"
@@ -124,7 +124,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="border-t md:hidden bg-zinc-900/95 backdrop-blur-md border-zinc-800"
+            className="border-t backdrop-blur-md md:hidden bg-zinc-900/95 border-zinc-800"
           >
             <div className="flex flex-col items-center py-4 space-y-4 container-custom">
               {navItems.map((item) => (
@@ -142,7 +142,7 @@ export default function Navbar() {
                 href="/resume.pdf" 
                 target="_blank" 
                 rel="noopener noreferrer"
-                className="inline-block w-full max-w-xs mt-2 text-center button-outline"
+                className="inline-block mt-2 w-full max-w-xs text-center button-outline"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Resume
