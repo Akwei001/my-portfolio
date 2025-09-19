@@ -15,7 +15,7 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Project 1',
+    title: 'Language Learning App',
     description: 'A modern web application built with Next.js and TypeScript.',
     image: '/project1.jpg',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
@@ -23,7 +23,7 @@ const projects: Project[] = [
     live: 'https://project1.com',
   },
   {
-    title: 'Project 2',
+    title: 'Music Player',
     description: 'A responsive website with modern design and animations.',
     image: '/project2.jpg',
     tags: ['React', 'Framer Motion', 'CSS'],
@@ -42,19 +42,19 @@ export default function Projects() {
       className="py-16"
       id="projects"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
         <motion.h2
           variants={fadeIn('up', 0.2)}
-          className="text-3xl font-bold text-gray-900 dark:text-white mb-12 text-center"
+          className="mb-12 text-3xl font-bold text-center text-gray-900 dark:text-white"
         >
           Projects
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
           {projects.map((project, index) => (
             <motion.div
               key={project.title}
               variants={fadeIn('up', 0.2 + index * 0.1)}
-              className="bg-white dark:bg-zinc-800 rounded-lg overflow-hidden shadow-lg hover:shadow-xl transition-shadow"
+              className="overflow-hidden bg-white rounded-lg shadow-lg transition-shadow dark:bg-zinc-800 hover:shadow-xl"
             >
               <div className="relative h-48">
                 <Image
@@ -65,17 +65,17 @@ export default function Projects() {
                 />
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">
+                <h3 className="mb-2 text-xl font-semibold text-gray-900 dark:text-white">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-300 mb-4">
+                <p className="mb-4 text-gray-600 dark:text-gray-300">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
                   {project.tags.map((tag) => (
                     <span
                       key={tag}
-                      className="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 rounded-full text-sm"
+                      className="px-2 py-1 text-sm text-purple-800 bg-purple-100 rounded-full dark:bg-purple-900 dark:text-purple-200"
                     >
                       {tag}
                     </span>
