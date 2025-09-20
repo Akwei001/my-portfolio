@@ -17,7 +17,7 @@ const projects: Project[] = [
   {
     title: 'Language Learning App',
     description: 'A modern web application built with Next.js and TypeScript.',
-    image: '/project1.jpg',
+    image: '/my-portfolio/public/gamehome.png',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     github: 'https://github.com/yourusername/project1',
     live: 'https://project1.com',
