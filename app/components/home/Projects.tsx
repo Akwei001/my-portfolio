@@ -16,7 +16,7 @@ interface Project {
 const projects: Project[] = [
   {
     title: 'Language Learning App',
-    description: 'A modern web application built with Next.js and TypeScript.',
+    description: 'This text will describe the app',
     image: '/my-portfolio/public/gamehome.png',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
     github: 'https://github.com/yourusername/project1',
@@ -24,7 +24,7 @@ const projects: Project[] = [
   },
   {
     title: 'Music Player',
-    description: 'A responsive website with modern design and animations.',
+    description: 'Does this need to be here? Yes, it does.',
     image: '/project2.jpg',
     tags: ['React', 'Framer Motion', 'CSS'],
     github: 'https://github.com/yourusername/project2',
