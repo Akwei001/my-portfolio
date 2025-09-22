@@ -15,20 +15,20 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: 'Language Learning App',
-    description: 'This text will describe the app',
-    image: '/my-portfolio/public/gamehome.png',
-    tags: ['Next.js', 'TypeScript', 'Tailwind CSS'],
-    github: 'https://github.com/yourusername/project1',
-    live: 'https://project1.com',
+    title: 'HiraKana Game',
+    description: 'A personal project to practice coding and to help with studying for the Japanese Language Proficiency test level 5. The app consist of a Hiragana/Katakana quiz, a memory game and vocabulary list',
+    image: '/gamehome.png',
+    tags: ['React', 'React Router', 'Tailwind CSS', 'Cypress'],
+    github: 'https://extraordinary-pony-659a22.netlify.app',
+    live: 'https://github.com/Akwei001/Jgame',
   },
   {
-    title: 'Music Player',
-    description: 'Does this need to be here? Yes, it does.',
+    title: 'Amplify Player',
+    description: 'A full-stack music player app created using AWS amplify. Users can create a login, and upload their own files to the database.The app uses a React front end connected to a Dynamo Db database via Graph Ql.',
     image: '/project2.jpg',
-    tags: ['React', 'Framer Motion', 'CSS'],
-    github: 'https://github.com/yourusername/project2',
-    live: 'https://project2.com',
+    tags: ['JavaScript', 'React', 'AWS', 'Graph QL', 'DynamoDb'],
+    github: 'https://github.com/Akwei001/amplify-player',
+    live: 'https://master.drp46atynvtc.amplifyapp.com/',
   },
 ];
 
