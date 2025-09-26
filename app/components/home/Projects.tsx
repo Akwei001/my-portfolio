@@ -25,7 +25,7 @@ const projects: Project[] = [
   {
     title: 'Amplify Player',
     description: 'A full-stack music player app created using AWS amplify. Users can create a login, and upload their own files to the database.The app uses a React front end connected to a Dynamo Db database via Graph Ql.',
-    image: '/project2.jpg',
+    image: '/amplifyplayer.png',
     tags: ['JavaScript', 'React', 'AWS', 'Graph QL', 'DynamoDb'],
     github: 'https://github.com/Akwei001/amplify-player',
     live: 'https://master.drp46atynvtc.amplifyapp.com/',
