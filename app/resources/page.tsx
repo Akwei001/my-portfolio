@@ -14,6 +14,16 @@ const resources = [
         description: 'Design inspiration',
         url: 'https://dribbble.com',
       },
+      {
+        name: 'Coolors',
+        description: 'Palette generators for design inspiration',
+        url: 'https://coolors.co',
+      },
+      {
+        name: 'Unsplash',
+        description: 'Free stock images for web design',
+        url: '',
+      },
     ],
   },
   {
